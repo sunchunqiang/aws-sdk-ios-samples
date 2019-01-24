@@ -132,12 +132,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDCB7B2319CCB6330089B5AE /* Build configuration list for PBXNativeTarget "S3TransferUtilitySampleObjC" */;
 			buildPhases = (
+				E9086D4BEF0E5F76C78E1AF0 /* [CP] Check Pods Manifest.lock */,
 				7135539D0CBA42CC9D04B45A /* 📦 Check Pods Manifest.lock */,
 				BDCB7AF919CCB6320089B5AE /* Sources */,
 				BDCB7AFA19CCB6320089B5AE /* Frameworks */,
 				BDCB7AFB19CCB6320089B5AE /* Resources */,
-				D18C27D9EC194ED5AEC711F4 /* 📦 Copy Pods Resources */,
 				E94EADB28F72A0F8B650C860 /* 📦 Embed Pods Frameworks */,
+				AF58525836A84DEA2437548D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,19 +211,50 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D18C27D9EC194ED5AEC711F4 /* 📦 Copy Pods Resources */ = {
+		AF58525836A84DEA2437548D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferUtilitySampleObjC/Pods-S3TransferUtilitySampleObjC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferUtilitySampleObjC/Pods-S3TransferUtilitySampleObjC-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferUtilitySampleObjC/Pods-S3TransferUtilitySampleObjC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9086D4BEF0E5F76C78E1AF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-S3TransferUtilitySampleObjC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E94EADB28F72A0F8B650C860 /* 📦 Embed Pods Frameworks */ = {
